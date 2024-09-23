@@ -27,7 +27,7 @@ export function Chatbot() {
   };
 
   return (
-    <div className="bg-[#030303] w-full rounded-[34px] overflow-hidden shadow-lg">
+    <div className="bg-[#FAFCFC] w-full rounded-[34px] overflow-hidden shadow-lg flex flex-col max-h-[70vh]">
       {/* Chat Header */}
       <div className="bg-[#FAFCFC] opacity-90 p-3 flex items-center justify-between">
         <div className='px-4'>
@@ -40,7 +40,7 @@ export function Chatbot() {
       </div>
 
       {/* Chat Messages & Box */}
-      <div className="h-44 overflow-y-auto p-4 bg-[#AEB2B5]">
+      <div className="flex-1 overflow-y-auto p-4 bg-[#AEB2B5] max-h-[25vh]">
         {messages.map((message, index) => (
           <div
             key={index}
