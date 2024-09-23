@@ -2,15 +2,15 @@ import { Chatbot } from "./Chatbot";
 
 export function Home() {
   return (
-    <div className="grid grid-cols-2 gap-7" >
+    <div className="grid grid-cols-2 gap-7 h-screen" >
         <div>
            
         </div>
-        <div className="grid grid-rows-2 gap-y-2">
+        <div className="grid grid-rows-2 gap-y-1 h-full">
             <div>
 
             </div>
-            <div className="px-16 align-center">
+            <div className="px-9 pb-6 align-center h-full">
                 <Chatbot/>
             </div>
         </div>
