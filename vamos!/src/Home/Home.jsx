@@ -10,7 +10,7 @@ export function Home() {
             <div>
 
             </div>
-            <div className="px-9 pb-6 align-center h-full">
+            <div className="px-9 pb-3 align-center">
                 <Chatbot/>
             </div>
         </div>
