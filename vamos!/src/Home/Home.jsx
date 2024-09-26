@@ -10,7 +10,7 @@ export function Home() {
       </div>
 
       {/* Chatbot on the right */}
-      <div className="flex justify-center items-end">
+      <div className="flex justify-center items-end py-5 px-5">
         <Chatbot />
       </div>
     </div>

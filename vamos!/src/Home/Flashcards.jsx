@@ -45,7 +45,7 @@ export function Flashcards() {
                     className="bg-[#EDF0F1] p-6 rounded-2xl shadow-lg cursor-pointer text-center w-[35vw] h-[55vh] flex items-center justify-center" 
                     onClick={handleCardClick}
                 >
-                    <div className="overflow-y-auto text-4xl flex items-center justify-center text-center h-full w-full px-4"
+                    <div className="overflow-y-auto text-4xl flex items-center justify-center text-center h-full w-full px-4 text-black"
                     style={{ fontFamily: '"Open Sans Condensed", sans-serif' }}
                     >
                             {isFlipped ? (
