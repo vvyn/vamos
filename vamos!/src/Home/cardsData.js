@@ -22,7 +22,7 @@ const cards = [
     { question: "Who is one of your state’s U.S. Senators now?", answer: "▪ John Cornyn\n ▪ Ted Cruz]" },
     { question: "The House of Representatives has how many voting members?", answer: "four hundred thirty-five (435)" },
     { question: "We elect a U.S. Representative for how many years?", answer: "two (2)" },
-    { question: "Name your U.S. Representative.", answer: "Jasmine Crocket (30th, Dallas)\n▪ Colin Allred (32nd, Dallas)\n▪ Marc Veasey (33rd, Dallas)\n▪ Keith Seif (3rd, Collin)\n▪ Pat Fallon (4th, Collin)\n▪ Kay Granger (12th, Denton)\n▪ Michael Burgess (26th, Denton)" },
+    { question: "Name your U.S. Representative.", answer: "▪ Keith Seif (3rd, Collin)\n▪ Pat Fallon (4th, Collin)\n▪ Jake Ellzey (6th, Tarrant)\n▪ Kay Granger (12th, Denton/Tarrant)\n▪ Beth Van Duyne (24th, Tarrant)\n▪ Michael Burgess (26th, Denton)\n▪ Jasmine Crocket (30th, Dallas)\n▪ Colin Allred (32nd, Dallas)\n▪ Marc Veasey (33rd, Dallas)" },
     { question: "Who does a U.S. Senator represent?", answer: "all people of the state" },
     { question: "Why do some states have more Representatives than other states?", answer: "▪ (because of) the state’s population\n▪ (because) they have more people\n▪ (because) some states have more people" },
     { question: "We elect a President for how many years?", answer: "four (4)" },

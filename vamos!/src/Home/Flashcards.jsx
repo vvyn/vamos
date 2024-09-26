@@ -4,6 +4,7 @@ import cards from "./cardsData.js";
 export function Flashcards() {
 
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
+    const [prevCardIndex, setPrevCardIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
     const [lastCardIndex, setLastCardIndex] = useState(0);
 
@@ -18,13 +19,13 @@ export function Flashcards() {
 
     const handleNext = () => {
         const randomIndex = getRandomIndex();
+        setPrevCardIndex(currentCardIndex);
         setCurrentCardIndex(randomIndex);
         setIsFlipped(false);
     };
 
     const handlePrev = () => {
-        const randomIndex = getRandomIndex();
-        setCurrentCardIndex(randomIndex);
+        setCurrentCardIndex(prevCardIndex);
         setIsFlipped(false);
     };
 
@@ -54,7 +55,7 @@ export function Flashcards() {
                     onClick={handleCardClick}
                 >
                     <div className="overflow-y-auto text-4xl flex items-center justify-center text-center h-full w-full px-4"
-                    style={{ fontFamily: '"Open Sans Condensed", sans-serif' }}
+                    style={{ fontFamily: '"Open Sans Condensed", sans-serif', color: 'black' }}
                     >
                             {isFlipped ? (
                                 <span>{cards[currentCardIndex].answer}</span>
