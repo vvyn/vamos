@@ -1,23 +1,31 @@
 import { useState } from 'react';
+import cards from "./cardsData.js";
 
 export function Flashcards() {
-    const cards = [
-        { question: "What is the supreme law of the land?", answer: "The Constitution" },
-        { question: "What does the Constitution do?", answer: "▪ sets up the government\n▪ defines the government\n▪ protects basic rights of Americans" },
-        { question: "The idea of self-government is in the first three words of the Constitution. What are these words?", answer: "We the People" }
-    ];
 
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
+    const [lastCardIndex, setLastCardIndex] = useState(0);
+
+    const getRandomIndex = () => {
+        let randomIndex;
+        do {
+            randomIndex = Math.floor(Math.random() * cards.length);
+        } while (randomIndex === lastCardIndex);
+        setLastCardIndex(randomIndex);
+        return randomIndex;
+    };
 
     const handleNext = () => {
-        setCurrentCardIndex((prevIndex) => (prevIndex + 1) % cards.length);
-        setIsFlipped(false); // Reset flip state when moving to the next card
+        const randomIndex = getRandomIndex();
+        setCurrentCardIndex(randomIndex);
+        setIsFlipped(false);
     };
 
     const handlePrev = () => {
-        setCurrentCardIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length);
-        setIsFlipped(false); // Reset flip state when moving to the previous card
+        const randomIndex = getRandomIndex();
+        setCurrentCardIndex(randomIndex);
+        setIsFlipped(false);
     };
 
     const handleCardClick = () => {
