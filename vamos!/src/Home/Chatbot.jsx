@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
 
 export function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
 
+  const messageRef = useRef(null);
+
   const sendMessage = async () => {
+
     if (input.trim() === '') return;
 
     const userMessage = {
@@ -34,6 +37,16 @@ export function Chatbot() {
 
     setInput('');
   };
+
+  
+
+  const bottomAutoScroll = () => {
+    messageRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    bottomAutoScroll();
+  }, [messages]);
 
   return (
     <div className="bg-[#FAFCFC] w-full rounded-[34px] overflow-hidden shadow-lg flex flex-col ">
@@ -66,6 +79,7 @@ export function Chatbot() {
             </div>
           </div>
         ))}
+        <div ref={messageRef} />
       </div>
     
        {/* Message Sending Box */}
