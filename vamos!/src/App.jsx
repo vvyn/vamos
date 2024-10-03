@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <div className="h-screen w-screen bg-gradient-to-br from-[#2C3E50] to-[#BDC3C7]"> 
+      <div className="h-screen w-screen bg-gradient-to-r from-red-500 to-blue-500"> 
         <Router>
             <Routes>
             <Route
