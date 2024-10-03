@@ -40,7 +40,7 @@ export function SignUp() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="block m-2"
-                />m-4
+                />
                 <button className="block m-2" onClick={handleSignUp}>Sign Up</button>
                 <div className="text-white m-2">Have an account?
                 </div>

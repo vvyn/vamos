@@ -41,7 +41,7 @@ export function Login() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="block m-2"
-                />m-4
+                />
                 <button className="block m-2" onClick={handleLogin}>Login</button>
                 <div className="text-white m-2">Don't have an account?
                 </div>

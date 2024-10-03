@@ -24,6 +24,10 @@ export function Flashcards() {
         setIsFlipped(!isFlipped); // Toggle flip state
     };
 
+    const handleStar = () => {
+        const count = 0; // Toggle flip state
+    };
+
     return(
         <div className="bg-[#FAFCFC] w-full h-[90vh] rounded-[34px] overflow-hidden shadow-lg flex flex-col justify-between p-6 mt-12 mx-8">
         {/* Flashcards Header */}
@@ -64,6 +68,14 @@ export function Flashcards() {
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24">
                             <path fill="currentColor" fillRule="evenodd" d="M15 7a1 1 0 0 0-1.707-.707l-5 5a1 1 0 0 0 0 1.414l5 5A1 1 0 0 0 15 17z" clipRule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <button 
+                        className="bg-gray-700 text-white px-1 py-1 rounded-full flex items-center justify-center outline-none" 
+                        onClick={handleStar}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 .587l3.668 7.568 8.332 1.215-6 5.848 1.416 8.263L12 18.896l-7.416 3.88L6 15.168l-6-5.848 8.332-1.215z"/>
                         </svg>
                     </button>
                     <button 
