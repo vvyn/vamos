@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import cards from "./cardsData.js";
 
-export function Flashcards() {
+export function Flashcards({setMasteredCount}) {
 
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [prevCardIndex, setPrevCardIndex] = useState(0);
@@ -34,7 +34,8 @@ export function Flashcards() {
     };
 
     const handleStar = () => {
-        const count = 0; // Toggle flip state
+        setMasteredCount((prevCount) => prevCount + 1);
+        //const count = 0; // Toggle flip state
     };
 
     return(
