@@ -27,7 +27,10 @@ export function Login() {
     return (
         <>
         <div className="min-h-screen flex flex-col items-center justify-center bg-gray-800">
-            <h1 className="text-white mb-8 font-bold">Login</h1>
+            <div className="w-full flex justify-center mb-4">
+                <img src="/eagle.png" alt="Eagle" className="h-24" /> {/* Adjust the height as needed */}
+            </div>
+            <h1 className="text-blue-400 mb-8 font-bold">¡Vamos!</h1>
                 <input
                     type="email"
                     placeholder="Email"
@@ -46,7 +49,6 @@ export function Login() {
                 
                 <div className="text-white m-2 pt-8">Don't have an account?</div>
                 <button className="ml-2 text-black" onClick={() => navigate("/signup")}>Sign up</button>
-
             </div>
         </>
     );

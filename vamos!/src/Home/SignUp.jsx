@@ -26,7 +26,10 @@ export function SignUp() {
     return (
         <>
             <div className="min-h-screen flex flex-col items-center justify-center bg-gray-800">
-                <h1 className="text-white mb-8 font-bold">Sign Up</h1>
+                <div className="w-full flex justify-center mb-4">
+                    <img src="/eagle.png" alt="Eagle" className="h-24" /> {/* Adjust the height as needed */}
+                </div>
+                <h1 className="text-red-400 mb-8 font-bold">¡Vamos!</h1>
                 <input
                     type="email"
                     placeholder="Email"
