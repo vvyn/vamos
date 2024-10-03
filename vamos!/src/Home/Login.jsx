@@ -26,8 +26,8 @@ export function Login() {
 
     return (
         <>
-            <div>
-                <h1 className="text-white mb-8">Login</h1>
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-800">
+            <h1 className="text-white mb-8 font-bold">Login</h1>
                 <input
                     type="email"
                     placeholder="Email"
@@ -43,8 +43,8 @@ export function Login() {
                     className="block m-2"
                 />
                 <button className="block m-2" onClick={handleLogin}>Login</button>
-                <div className="text-white m-2">Don't have an account?
-                </div>
+                
+                <div className="text-white m-2 pt-8">Don't have an account?</div>
                 <button className="ml-2 text-black" onClick={() => navigate("/signup")}>Sign up</button>
 
             </div>
