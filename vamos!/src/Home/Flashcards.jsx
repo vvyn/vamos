@@ -29,8 +29,8 @@ export function Flashcards() {
         setIsFlipped(false);
     };
 
-    const handleCardClick = () => {
-        setIsFlipped(!isFlipped); // Toggle flip state
+    const handleShowAnswer  = () => {
+        setIsFlipped(!isFlipped);
     };
 
     return(
@@ -51,18 +51,31 @@ export function Flashcards() {
             <div className="flex flex-col items-center">
                 {/* Card Display */}
                 <div 
-                    className="bg-[#EDF0F1] p-6 rounded-2xl shadow-lg cursor-pointer text-center w-[35vw] h-[55vh] flex items-center justify-center" 
-                    onClick={handleCardClick}
+                    className="bg-[#EDF0F1] p-6 rounded-2xl shadow-lg cursor-pointer text-center w-[35vw] h-[55vh] flex flex-col items-center justify-center" 
                 >
-                    <div className="overflow-y-auto text-4xl flex items-center justify-center text-center h-full w-full px-4"
+                    <div className="overflow-y-auto flex items-center justify-center text-center h-full w-full px-4"
                     style={{ fontFamily: '"Open Sans Condensed", sans-serif', color: 'black' }}
                     >
                             {isFlipped ? (
-                                <span>{cards[currentCardIndex].answer}</span>
+                                <div className="text-3xl flex items-center justify-center">
+                                    <span>{cards[currentCardIndex].answer}</span>
+                                </div>
                             ) : (
-                                <span>{cards[currentCardIndex].question}</span>
+                                <div className="flex flex-col">
+                                    <span className='text-4xl'>{cards[currentCardIndex].question}</span>
+                                    <div className='text-2xl mt-5 text-gray-600'>
+                                        {cards[currentCardIndex].translation}
+                                    </div>
+                                </div>
                             )}
-                        </div>
+                    </div>
+                {/* Answer Button */}
+                <button 
+                    className="bg-white text-black px-4 py-2 rounded-md w-[90%]" 
+                    onClick={handleShowAnswer}
+                >
+                    {isFlipped ? "Question" : "Answer"}
+                </button>
                 </div>
 
                 {/* Navigation Buttons */}
