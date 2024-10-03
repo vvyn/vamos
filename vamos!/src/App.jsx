@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import {BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom'
 import {Home} from './Home/Home';
 import { getAuth, onAuthStateChanged  } from "firebase/auth";
-import {Login} from './Home/Auth';
+import {Login} from './Home/Login';
 import app from './Home/FirebaseInit';
+import { SignUp } from './Home/SignUp';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -29,8 +30,9 @@ function App() {
             <Route
               exact
               path="/"
-              element={user ? <Home /> : <Navigate to="/login" />}
+              element={user ? <Home /> : <Navigate to="/signup" />}
             />
+              <Route path="/signup" element={<SignUp />} />
               <Route path="/login" element={<Login />} />
             </Routes>
           </Router>
