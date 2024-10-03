@@ -1,27 +1,36 @@
 import { useState } from 'react';
+import cards from "./cardsData.js";
 
 export function Flashcards() {
-    const cards = [
-        { question: "What is the supreme law of the land?", answer: "The Constitution" },
-        { question: "What does the Constitution do?", answer: "▪ sets up the government\n▪ defines the government\n▪ protects basic rights of Americans" },
-        { question: "The idea of self-government is in the first three words of the Constitution. What are these words?", answer: "We the People" }
-    ];
 
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
+    const [prevCardIndex, setPrevCardIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
+    const [lastCardIndex, setLastCardIndex] = useState(0);
+
+    const getRandomIndex = () => {
+        let randomIndex;
+        do {
+            randomIndex = Math.floor(Math.random() * cards.length);
+        } while (randomIndex === lastCardIndex);
+        setLastCardIndex(randomIndex);
+        return randomIndex;
+    };
 
     const handleNext = () => {
-        setCurrentCardIndex((prevIndex) => (prevIndex + 1) % cards.length);
-        setIsFlipped(false); // Reset flip state when moving to the next card
+        const randomIndex = getRandomIndex();
+        setPrevCardIndex(currentCardIndex);
+        setCurrentCardIndex(randomIndex);
+        setIsFlipped(false);
     };
 
     const handlePrev = () => {
-        setCurrentCardIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length);
-        setIsFlipped(false); // Reset flip state when moving to the previous card
+        setCurrentCardIndex(prevCardIndex);
+        setIsFlipped(false);
     };
 
-    const handleCardClick = () => {
-        setIsFlipped(!isFlipped); // Toggle flip state
+    const handleShowAnswer  = () => {
+        setIsFlipped(!isFlipped);
     };
 
     return(
@@ -42,18 +51,31 @@ export function Flashcards() {
             <div className="flex flex-col items-center">
                 {/* Card Display */}
                 <div 
-                    className="bg-[#EDF0F1] p-6 rounded-2xl shadow-lg cursor-pointer text-center w-[35vw] h-[55vh] flex items-center justify-center" 
-                    onClick={handleCardClick}
+                    className="bg-[#EDF0F1] p-6 rounded-2xl shadow-lg cursor-pointer text-center w-[35vw] h-[55vh] flex flex-col items-center justify-center" 
                 >
-                    <div className="overflow-y-auto text-4xl flex items-center justify-center text-center h-full w-full px-4 text-black"
-                    style={{ fontFamily: '"Open Sans Condensed", sans-serif' }}
+                    <div className="overflow-y-auto flex items-center justify-center text-center h-full w-full px-4"
+                    style={{ fontFamily: '"Open Sans Condensed", sans-serif', color: 'black' }}
                     >
                             {isFlipped ? (
-                                <span>{cards[currentCardIndex].answer}</span>
+                                <div className="text-3xl flex items-center justify-center">
+                                    <span>{cards[currentCardIndex].answer}</span>
+                                </div>
                             ) : (
-                                <span>{cards[currentCardIndex].question}</span>
+                                <div className="flex flex-col">
+                                    <span className='text-4xl'>{cards[currentCardIndex].question}</span>
+                                    <div className='text-2xl mt-5 text-gray-600'>
+                                        {cards[currentCardIndex].translation}
+                                    </div>
+                                </div>
                             )}
-                        </div>
+                    </div>
+                {/* Answer Button */}
+                <button 
+                    className="bg-white text-black px-4 py-2 rounded-md w-[90%]" 
+                    onClick={handleShowAnswer}
+                >
+                    {isFlipped ? "Question" : "Answer"}
+                </button>
                 </div>
 
                 {/* Navigation Buttons */}
