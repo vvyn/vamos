@@ -1,0 +1,24 @@
+{
+    "builds": [
+      {
+        "src": "vamos!/package.json",
+        "use": "@vercel/static-build",
+        "config": { "distDir": "dist" }
+      },
+      {
+        "src": "groq-backend/server.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "groq-backend/server.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "vamos!/$1"
+      }
+    ]
+  }
+  

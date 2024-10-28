@@ -8,7 +8,7 @@ const port = process.env.PORT || 5001;
 app.use(cors());
 app.use(express.json());
 
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY || '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' });
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY || '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' });
 
 app.post('/chat', async (req, res) => {
   const { message } = req.body;
