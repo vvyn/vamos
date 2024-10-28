@@ -1,14 +1,19 @@
 const express = require('express');
 const Groq = require('groq-sdk');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 5001;
 
+app.use(cors({
+  origin: 'https://vamos-ct9cxo5zs-victorias-projects-75bd7edd.vercel.app', // Adjust this to your frontend's URL
+  credentials: true,
+}));
 app.use(express.json());
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY || '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' });
 
-app.post('https://vamos-ct9cxo5zs-victorias-projects-75bd7edd.vercel.app/chat', async (req, res) => {
+app.post('/chat', async (req, res) => {
   const { message } = req.body;
 
   try {
