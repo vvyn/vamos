@@ -19,7 +19,7 @@ export function Chatbot() {
     setMessages((prevMessages) => [...prevMessages, userMessage]);
 
     try {
-      const response = await axios.post('https://vamos-victorias-projects-75bd7edd.vercel.app/chat', {
+      const response = await axios.post('https://vamos-eight.vercel.app', {
         message: input,
       });
 

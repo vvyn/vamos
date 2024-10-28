@@ -6,34 +6,39 @@ const app = express();
 const port = process.env.PORT || 5001;
 
 app.use(cors({
-  origin: 'https://vamos-victorias-projects-75bd7edd.vercel.app', // Adjust this to your frontend's URL
+  origin: 'vamos-eight.vercel.app',
   credentials: true,
 }));
 app.use(express.json());
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY || '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' });
 
-app.post('/chat', async (req, res) => {
-  const { message } = req.body;
+try {
+  app.post('/chat', async (req, res) => {
+    const { message } = req.body;
+  
+    try {
+      const chatCompletion = await groq.chat.completions.create({
+        messages: [
+          {
+            role: "user",
+            content: message,
+          },
+        ],
+        model: "llama3-8b-8192", 
+      });
+  
+      res.json(chatCompletion.choices[0]?.message?.content || "No response from Groq");
+  
+    } catch (error) {
+      console.error('Error calling Groq API:', error);
+      res.status(500).send('Error calling Groq API');
+    }
+  });
+} catch (error) {
+  console.error('Error:', error);
+}
 
-  try {
-    const chatCompletion = await groq.chat.completions.create({
-      messages: [
-        {
-          role: "user",
-          content: message,
-        },
-      ],
-      model: "llama3-8b-8192", 
-    });
-
-    res.json(chatCompletion.choices[0]?.message?.content || "No response from Groq");
-
-  } catch (error) {
-    console.error('Error calling Groq API:', error);
-    res.status(500).send('Error calling Groq API');
-  }
-});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
