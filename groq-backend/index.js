@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 5001;
 
 app.use(cors({
-  origin: 'vamos-eight.vercel.app',
+  origin: 'https://vamos-eight.vercel.app',
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
 }));
