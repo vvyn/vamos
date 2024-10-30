@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vercel dev",
     "build": "echo \"No build necessary\"",
-    "start": "echo \"No start necessary\""
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",

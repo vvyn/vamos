@@ -15,6 +15,14 @@ app.use(express.json());
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY || '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' });
 
 try {
+  app.use("/", (req, res) => {
+    res.send('Hello World!');
+  });
+} catch (error) {
+  console.error('Error:', error);
+} 
+
+try {
   app.options('/chat', cors());
   app.post('/chat', async (req, res) => {
     const { message } = req.body;

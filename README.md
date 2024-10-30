@@ -6,4 +6,4 @@ Frontend:
 
 Backend:
 - cd groq-backend
-- node server.js
+- node index.js
